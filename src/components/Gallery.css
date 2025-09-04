@@ -1,0 +1,11 @@
+.gallery-image {
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  filter: saturate(105%);
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-image:hover {
+  box-shadow: 0 20px 50px rgba(59, 130, 246, 0.2);
+}

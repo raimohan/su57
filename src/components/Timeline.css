@@ -1,0 +1,34 @@
+.timeline {
+  position: relative;
+  border-left: 1px dashed #cbd5e1;
+  margin-left: 0.75rem;
+  padding-left: 1.25rem;
+}
+
+.tl-item {
+  margin: 1rem 0 1.5rem;
+  position: relative;
+}
+
+.tl-item .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, var(--primary), var(--primary-2));
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+  position: absolute;
+  left: -7px;
+  top: 0.2rem;
+}
+
+.tl-item h4 {
+  margin: 0.1rem 0 0.2rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.tl-item p {
+  color: var(--muted);
+  margin: 0.2rem 0;
+  line-height: 1.6;
+}

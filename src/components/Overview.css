@@ -1,0 +1,39 @@
+.overview-grid {
+  gap: 1.25rem;
+}
+
+.overview-grid .glass {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.overview-grid .glass:hover {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 25px 70px rgba(59, 130, 246, 0.2);
+}
+
+.overview-grid h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.overview-grid p {
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.7;
+}
+
+.overview-grid ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.overview-grid li {
+  margin-bottom: 0.5rem;
+}
+
+.overview-grid li:last-child {
+  margin-bottom: 0;
+}
