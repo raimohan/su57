@@ -1,21 +1,13 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import './FAQ.css';
 
 const FAQ = () => {
-  const [openItems, setOpenItems] = useState({});
   const { ref, inView } = useInView({
     threshold: 0.1,
     triggerOnce: true
   });
-
-  const toggleItem = (index) => {
-    setOpenItems(prev => ({
-      ...prev,
-      [index]: !prev[index]
-    }));
-  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -82,45 +74,17 @@ const FAQ = () => {
           </motion.p>
         </div>
 
-        <div className="faq-list">
-          {faqData.map((item, index) => (
-            <motion.div
-              key={index}
-              className={`faq-item ${openItems[index] ? 'open' : ''}`}
-              variants={itemVariants}
-              whileHover={{ scale: 1.01 }}
-            >
-              <motion.button
-                className="faq-question"
-                onClick={() => toggleItem(index)}
-                whileTap={{ scale: 0.98 }}
-              >
-                {item.question}
-                <motion.span
-                  className="faq-icon"
-                  animate={{ rotate: openItems[index] ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  ▼
-                </motion.span>
-              </motion.button>
-              
-              <AnimatePresence>
-                {openItems[index] && (
-                  <motion.div
-                    className="faq-answer"
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                  >
-                    <p>{item.answer}</p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
-        </div>
+        {faqData.map((item, index) => (
+          <motion.details 
+            key={index}
+            className="reveal"
+            variants={itemVariants}
+            style={{ transitionDelay: `${index * 0.06}s` }}
+          >
+            <summary>{item.question}</summary>
+            <p>{item.answer}</p>
+          </motion.details>
+        ))}
       </div>
     </motion.section>
   );
